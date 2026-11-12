@@ -54,7 +54,7 @@ The native handler echoes messages sent with `browser.runtime.sendNativeMessage`
 python3 tools/validate-project.py
 ```
 
-It parses `project.pbxproj`, walks the group tree, checks the target graph, the embed phase, the target dependency, bundle identifier prefixes, both Info.plists and every path referenced by `manifest.json`. 172 checks, no dependencies.
+It parses `project.pbxproj`, walks the group tree, checks the target graph, the embed phase, the target dependency, bundle identifier prefixes, both Info.plists, the app icon wiring and every path referenced by `manifest.json`. 175 checks, no dependencies.
 
 Build from the command line (macOS only):
 

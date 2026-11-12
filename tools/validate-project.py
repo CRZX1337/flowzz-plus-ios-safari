@@ -362,6 +362,21 @@ check(
     host_plist.get("CFBundleExecutable") == "$(EXECUTABLE_NAME)",
     "host Info.plist must use $(EXECUTABLE_NAME)",
 )
+check(
+    host_plist.get("CFBundleIconName") == "AppIcon",
+    "host Info.plist must point at the AppIcon asset catalog entry",
+)
+
+icon_set = os.path.join(ROOT, "FlowzzPlus", "Assets.xcassets", "AppIcon.appiconset")
+if check(os.path.isdir(icon_set), "host app icon asset catalog is missing"):
+    with open(os.path.join(icon_set, "Contents.json"), encoding="utf-8") as handle:
+        icon_contents = json.load(handle)
+    for image in icon_contents.get("images", []):
+        filename = image.get("filename")
+        check(
+            bool(filename) and os.path.exists(os.path.join(icon_set, filename)),
+            f"app icon image referenced by the asset catalog is missing: {filename}",
+        )
 
 extension_dict = ext_plist.get("NSExtension", {})
 check(isinstance(extension_dict, dict) and bool(extension_dict), "extension Info.plist has no NSExtension dict")

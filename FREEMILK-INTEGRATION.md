@@ -435,11 +435,12 @@ Performed on this repository (Linux, no Xcode):
 | Bundle identifiers | extension prefixed by host id, valid characters, identical across configurations | pass |
 | Version consistency | `MARKETING_VERSION` / `CURRENT_PROJECT_VERSION` equal on both targets | pass |
 | Info.plists | both parse, package types, `NSExtension` point and principal class | pass |
+| App icon wiring | `CFBundleIconName` points at `AppIcon`; every image in the asset catalog exists | pass |
 | Resources | all files referenced by Xcode exist on disk; manifest paths exist; icons present | pass |
 | No custom browser engine | no `WKWebView` anywhere in the tree | pass |
 | Negative test | deliberately broken project (wrong embed destination, wrong bundle id, missing icon) is rejected with three specific errors | pass |
 
-Total: 172 automated checks (`python3 tools/validate-project.py`).
+Total: 175 automated checks (`python3 tools/validate-project.py`).
 
 **Not performed**: no `xcodebuild`, no codesign, no archive, no App Store validation, no simulator or device run. No macOS or Xcode was available in the environment that produced this repository, so **an actual iOS build has not been performed**. Treat the project as statically verified, not build-verified.
 
