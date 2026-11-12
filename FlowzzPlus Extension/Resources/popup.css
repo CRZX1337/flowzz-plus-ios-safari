@@ -1,0 +1,86 @@
+:root {
+  color-scheme: light dark;
+  --surface: #ffffff;
+  --text: #0b0b0c;
+  --muted: #6b6f76;
+  --accent: #ff6363;
+  --line: rgba(11, 11, 12, 0.12);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --surface: #0b0b0c;
+    --text: #f5f5f7;
+    --muted: #a1a5ad;
+    --line: rgba(245, 245, 247, 0.16);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  width: 320px;
+  background: var(--surface);
+  color: var(--text);
+  font: 14px/1.45 -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+}
+
+.popup {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 16px;
+}
+
+.popup__header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+}
+
+.popup__icon {
+  border-radius: 9px;
+}
+
+.popup__title {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.popup__subtitle {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.popup__body {
+  margin: 0;
+}
+
+.popup__button {
+  appearance: none;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  font-weight: 500;
+  padding: 9px 12px;
+  cursor: pointer;
+}
+
+.popup__button:hover {
+  border-color: var(--accent);
+}
+
+.popup__status {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+}

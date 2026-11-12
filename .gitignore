@@ -1,0 +1,27 @@
+# Keep macOS Finder noise out of the repository
+.DS_Store
+
+# Xcode user state
+xcuserdata/
+*.xcuserstate
+*.xcscmblueprint
+*.xccheckout
+*.moved-aside
+
+# Build products and derived data
+build/
+DerivedData/
+*.ipa
+*.dSYM.zip
+*.dSYM
+*.hmap
+*.ipa
+*.xcarchive
+*.app
+*.appex
+
+# Fastlane / CI leftovers
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output
